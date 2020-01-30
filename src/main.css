@@ -1,0 +1,298 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Barlow", sans-serif;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  color: #eee;
+  background-position: center;
+  background-size: cover;
+  cursor: default;
+  position: relative;
+}
+
+.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 30% 40% 30%;
+      grid-template-columns: 30% 40% 30%;
+}
+
+.container .section {
+  height: 100vh;
+}
+
+.weather-clock-section {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 30% 40% 30%;
+      grid-template-rows: 30% 40% 30%;
+}
+
+.weather-clock-section .weather {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  font-size: 3rem;
+}
+
+.weather-clock-section .weather .timezone {
+  font-size: 1.4rem;
+}
+
+.weather-clock-section .weather .weather-icon {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.weather-clock-section .weather div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.weather-clock-section .clock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  font-size: 9rem;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.weather-clock-section .clock p {
+  display: block;
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+.weather-clock-section .clock #time {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 40% 10% 40%;
+      grid-template-columns: 40% 10% 40%;
+  grid-gap: 1rem;
+  text-align: center;
+}
+
+.weather-clock-section .todo-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.weather-clock-section .todo-input form.hidden {
+  display: none;
+}
+
+.weather-clock-section .todo-input .toggle-btn button {
+  color: #eee;
+  background-color: transparent;
+  border: none;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+}
+
+.weather-clock-section .todo-input .toggle-btn button.active {
+  border-bottom: 1px solid #eee;
+}
+
+.weather-clock-section .todo-input .toggle-btn button:focus {
+  outline: none;
+}
+
+.weather-clock-section #text-input,
+.weather-clock-section #edit-event-input,
+.weather-clock-section #edit-todo-input {
+  color: #eee;
+  height: 4rem;
+  width: 30rem;
+  background: none;
+  font-size: 3rem;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #eee;
+}
+
+.weather-clock-section #text-input::-webkit-input-placeholder,
+.weather-clock-section #edit-event-input::-webkit-input-placeholder,
+.weather-clock-section #edit-todo-input::-webkit-input-placeholder {
+  color: #eee;
+  opacity: 0.4;
+}
+
+.weather-clock-section #text-input:-ms-input-placeholder,
+.weather-clock-section #edit-event-input:-ms-input-placeholder,
+.weather-clock-section #edit-todo-input:-ms-input-placeholder {
+  color: #eee;
+  opacity: 0.4;
+}
+
+.weather-clock-section #text-input::-ms-input-placeholder,
+.weather-clock-section #edit-event-input::-ms-input-placeholder,
+.weather-clock-section #edit-todo-input::-ms-input-placeholder {
+  color: #eee;
+  opacity: 0.4;
+}
+
+.weather-clock-section #text-input::placeholder,
+.weather-clock-section #edit-event-input::placeholder,
+.weather-clock-section #edit-todo-input::placeholder {
+  color: #eee;
+  opacity: 0.4;
+}
+
+.section {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 20% 80%;
+      grid-template-rows: 20% 80%;
+}
+
+.section .open {
+  translate: all ease-in 0.3s;
+}
+
+.section .open p:active {
+  -webkit-transform: translateY(-20%);
+          transform: translateY(-20%);
+}
+
+.section .open,
+.section .list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 1rem;
+}
+
+.section .list {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-transform: translate3d(0, 100%, 0);
+          transform: translate3d(0, 100%, 0);
+  -webkit-transition: ease 1s;
+  transition: ease 1s;
+  overflow: scroll;
+}
+
+.section .list::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.section .list.show {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+.section .list ul {
+  list-style-type: none;
+  padding-left: 1rem;
+  padding-top: 2rem;
+  z-index: 4;
+}
+
+.section .list ul li {
+  margin-top: 1rem;
+  padding-bottom: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  width: 370px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid #eee;
+}
+
+.section .list ul li .text {
+  width: 100%;
+}
+
+.section .list ul li .text.line {
+  text-decoration: line-through;
+}
+
+.section .list ul li i {
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 1rem;
+  display: inline;
+}
+
+@media (max-width: 1270px) {
+  .container {
+    height: 100vh;
+    width: 70%;
+    margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .container .weather-clock-section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .container .event-section,
+  .container .todo-section {
+    display: none;
+  }
+}
+/*# sourceMappingURL=main.css.map */

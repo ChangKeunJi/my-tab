@@ -1,0 +1,215 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Barlow", sans-serif;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  color: #eee;
+  background-position: center;
+  background-size: cover;
+  cursor: default;
+  position: relative;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+
+  .section {
+    height: 100vh;
+  }
+}
+
+//  Weatehr & Clock & Input Fields
+
+.weather-clock-section {
+  display: grid;
+  grid-template-rows: 30% 40% 30%;
+
+  .weather {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    font-size: 3rem;
+    .timezone {
+      font-size: 1.4rem;
+    }
+    .weather-icon {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .clock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 9rem;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+
+    p {
+      display: block;
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+    }
+
+    #time {
+      display: grid;
+      grid-template-columns: 40% 10% 40%;
+      grid-gap: 1rem;
+      text-align: center;
+    }
+  }
+
+  .todo-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    form {
+      &.hidden {
+        display: none;
+      }
+    }
+
+    .toggle-btn {
+      button {
+        color: #eee;
+        background-color: transparent;
+        border: none;
+        padding: 0.4rem 1rem;
+        cursor: pointer;
+
+        &.active {
+          border-bottom: 1px solid #eee;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  #text-input,
+  #edit-event-input,
+  #edit-todo-input {
+    color: #eee;
+    height: 4rem;
+    width: 30rem;
+    background: none;
+    font-size: 3rem;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #eee;
+    &::placeholder {
+      color: #eee;
+      opacity: 0.4;
+    }
+  }
+}
+
+// Event & Todo Section
+
+.section {
+  display: grid;
+  grid-template-rows: 20% 80%;
+
+  .open {
+    translate: all ease-in 0.3s;
+    p {
+      &:active {
+        transform: translateY(-20%);
+      }
+    }
+  }
+  .open,
+  .list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1rem;
+  }
+
+  .list {
+    align-items: flex-start;
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: translate3d(0, 100%, 0);
+    transition: ease 1s;
+    overflow: scroll;
+    &::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
+
+    &.show {
+      transform: translate3d(0, 0, 0);
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 1rem;
+      padding-top: 2rem;
+      z-index: 4;
+      li {
+        margin-top: 1rem;
+        padding-bottom: 0.5rem;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        width: 370px;
+        display: inline-flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #eee;
+
+        .text {
+          width: 100%;
+          &.line {
+            text-decoration: line-through;
+          }
+        }
+
+        i {
+          cursor: pointer;
+          margin-right: 10px;
+          font-size: 1rem;
+          display: inline;
+        }
+      }
+    }
+  }
+}
+
+// Removed todo & event function when screen size is medium.
+@media (max-width: 1270px) {
+  .container {
+    height: 100vh;
+    width: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .weather-clock-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .event-section,
+    .todo-section {
+      display: none;
+    }
+  }
+}
